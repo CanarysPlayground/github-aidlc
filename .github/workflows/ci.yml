@@ -46,7 +46,7 @@ jobs:
 
       - name: Upload test results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: test-results
           path: |
@@ -61,7 +61,7 @@ jobs:
           cp app/backend/requirements.txt package/requirements.txt
 
       - name: Upload application artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: application
           path: package/
