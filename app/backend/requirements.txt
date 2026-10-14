@@ -1,4 +1,4 @@
 flask>=3.0
-flask-cors==4.0.0
+flask-cors==6.0.5
 flask-swagger-ui>=4.11
 gunicorn>=22.0
