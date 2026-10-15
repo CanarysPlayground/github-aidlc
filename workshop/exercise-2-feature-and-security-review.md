@@ -7,26 +7,40 @@
 ## Part A: Check the current app
 
 ```powershell
-git switch master
-git pull --ff-only
 .\run.ps1
 ```
 
 Open `http://localhost:5000` and note that all 15 tasks load in one list, with no pagination. Stop with Ctrl+C.
 
-## Part B: Create a feature branch
+## Part B: Create and switch to a feature branch
+
+Start from the latest `master`, then create and switch to a new feature branch:
 
 ```powershell
+git switch master
+git pull --ff-only
 git switch -c feature/server-pagination
+git branch --show-current
 ```
+
+Confirm the output is `feature/server-pagination`. Keep this branch active while implementing the feature.
 
 ## Part C: Implement server-side pagination
 
-Use this prompt in Copilot Chat:
+In Copilot Chat, use these files from Explorer into the chat to provide context:
 
-> Add server-side pagination to `GET /api/tasks`. Accept a one-based `page` (default 1) and `page_size` (default 10, max 50), sort by ascending task ID, and return `{"items": [], "page": 1, "page_size": 10, "total": 15, "total_pages": 2}`. An empty result returns empty `items` and `total_pages: 0`. Return HTTP 400 with a JSON error for non-integer values, `page` below 1, or `page_size` outside 1-50. Update OpenAPI, the frontend table, and focused backend tests. Add accessible Previous/Next controls and a page indicator, disabled at the first and last page. The browser must request only the visible page from the API. Change only source and test files under `app/`, and do not change unrelated behavior.
+- [app.py](../app/backend/app.py) - backend API.
+- [app.js](../app/frontend/app.js) - frontend logic.
+- [index.html](../app/frontend/index.html) - table and controls.
+- [openapi.py](../app/backend/openapi.py) - API definition.
 
-After Copilot finishes, review and accept the code changes, then run the app and check the pagination feature:
+Then use this prompt:
+
+> Add server-side pagination to `GET /api/tasks`, sorted by ID ascending: `page` defaults to 1; `page_size` defaults to 10 (max 50). Return `{items, page, page_size, total, total_pages}`, with `total_pages: 0` for no tasks. Return HTTP 400 JSON errors for non-integers, `page < 1`, or `page_size` outside 1–50. Fetch only the active page in the frontend; add accessible Previous/Next buttons disabled at boundaries and a page indicator. Update OpenAPI and backend tests, preserving existing features.
+>
+> Edit only the source code files under `app/`.
+
+After Copilot finishes, review and accept the code changes. Check `git diff --stat` to confirm that only the intended code, OpenAPI, and test files under `app/` changed. Then run the app and check the pagination feature:
 
 ```powershell
 .\run.ps1

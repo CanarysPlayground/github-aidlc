@@ -22,14 +22,7 @@ Complete the exercises in order. Each one has a hands-on task, commands, a Copil
 
 If a setting is locked or unavailable, ask your organization owner or the facilitator.
 
-The template contains the CI and CodeQL workflows. The workshop creates a personal repository from the template, so participants do not push branches or exercise commits to the shared template repository.
+The template contains the CI-CD and CodeQL workflows. The workshop creates a personal repository from the template, so participants do not push branches or exercise commits to the shared template repository.
 
-## Completion checklist
-
-- [ ] Personal repository created from the template and cloned locally, with `origin` pointing to that repository.
-- [ ] CodeQL code scanning and the available GitHub Advanced Security features (secret scanning, push protection, Dependabot) enabled.
-- [ ] Pagination and README changes merged through the stacked PRs; review CodeQL and Dependency Review results.
-- [ ] The intentional CI failure fixed through a PR; Build & Test passes on `master`.
-- [ ] (Optional) Azure settings configured in Exercise 4 and deployment verified in Exercise 5.
 
 Continue to [Exercise 1](exercise-1-repository-and-security.md).

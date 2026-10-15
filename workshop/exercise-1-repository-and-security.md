@@ -47,6 +47,7 @@ Follow [Creating a branch protection rule](https://docs.github.com/en/repositori
 - Require a pull request with `1` approval.
 - Block force pushes and deletions.
 - Require secret scanning alerts to be resolved, and automatically request Copilot code review, if available.
+- After all, keep the Enforcement status to **Active**, and click on **Create rule**.
 
 ## Completion check
 

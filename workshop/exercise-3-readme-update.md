@@ -16,7 +16,15 @@ git switch -c docs/readme-pagination
 
 ## Part B: Document pagination
 
-Use this prompt in Copilot Chat:
+In Copilot Chat, use these files from Explorer into the chat to provide context:
+
+- [README.md](../README.md) - documentation to update.
+- [app.py](../app/backend/app.py) - backend API and validation.
+- [app.js](../app/frontend/app.js) - pagination logic.
+- [index.html](../app/frontend/index.html) - table and controls.
+- [openapi.py](../app/backend/openapi.py) - API definition.
+
+Then use this prompt:
 
 > Update only `README.md` to document task pagination based on the current code. Cover `GET /api/tasks` parameters, defaults and limits, response fields, an example request and response, validation errors, and Previous/Next controls. Update existing descriptions for consistency. Keep it concise and preserve unrelated content.
 
