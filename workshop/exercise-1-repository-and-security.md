@@ -33,8 +33,6 @@ Follow [Enabling security features at public repositories](https://docs.github.c
 
 If a setting is unavailable, ask the facilitator.
 
-The backend includes an unused, synthetic `ADMIN_PASSWORD` in [app.py](../app/backend/app.py) for the AI-detected secrets demo. After the code is pushed and scanning completes, check secret scanning alerts. AI detection is not guaranteed to flag this fixture; no alert does not mean setup failed. Never replace it with a real credential.
-
 ## Part D: Verify CodeQL and CI-CD
 
 The repository already includes `.github/workflows/codeql.yml` and `ci-cd.yml`, so CodeQL runs as **Advanced setup**. Do not configure CodeQL Default setup.
