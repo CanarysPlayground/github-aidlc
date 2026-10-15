@@ -56,30 +56,41 @@ git commit -m "Add server-side task pagination"
 git push -u origin feature/server-pagination
 ```
 
-Select **Compare & pull request**, target `master`, and summarize your changes. Creating the PR triggers **CodeQL** and **Dependency Review**; pushing the feature branch alone does not. Once the scans finish, open **Checks** to review code scanning alerts and newly introduced dependency vulnerabilities.
+Select **Compare & pull request** and create a non-draft PR targeting `master` with a brief summary.
 
-If you enabled automatic **Copilot code review** at the repository level in Exercise 1, review its suggestions on the PR and address relevant feedback. Copilot review does not replace the required human approval.
+- **Copilot review:** wait for automatic review, read comments under **Files changed**, and commit relevant fixes to `feature/server-pagination`. If review does not start, check the automatic review ruleset.
+- **Checks:** review **CodeQL** and **Dependency Review** results. These run when the PR opens; **Build & Test** runs on pushes to `master`, including merges.
 
-**Build & Test** runs on pushes to `master`, including merges.
+**Leave the PR open for Exercise 3**, which stacks a documentation PR on this branch. One human approval is required; Copilot review does not count.
 
-**Leave the pull request open.** The `master` ruleset requires one approval, and Exercise 3 stacks a second PR on this branch.
+## Part E: Review security alerts and generate a fix with Copilot
 
-## Part E: Review Advanced Security results
+> **Note:** Wait for CodeQL and Dependency Review to finish. Secret scanning runs separately.
 
-> **Note:** Workflow-based scan results may take a few minutes to appear. Wait for the CodeQL and Dependency Review workflows to finish, then refresh before reviewing the results.
+### Review the alerts
 
-Open **Security and quality** and review all available security findings, not just those introduced by this PR:
+Open **Security and quality** and review alerts, including existing findings on `master`:
 
-- **Code scanning:** code vulnerabilities detected by CodeQL or other configured tools.
-- **Dependabot:** vulnerable dependencies.
-- **Secret Protection / Secret scanning:** exposed secrets and push protection alerts.
+- **Dependabot > Vulnerabilities:** affected packages and available security updates.
+- **Code scanning:** affected code, severity, and recommended fixes.
+- **Secret scanning:** exposed secrets. The synthetic password may not be detected; never use real credentials.
 
-For each finding, review its severity, affected code or dependency, and recommended fix. Review any other available security alerts and record your findings. If no alerts appear, record that result.
+Record findings or note that no alerts appeared.
+
+### Use Copilot Autofix on a code scanning alert
+
+1. Open a supported alert, select **Generate fix**, and review the suggestion.
+2. Select **Commit to branch** (existing branch) or **Commit to new branch**, then confirm. No new PR is required.
+3. Fetch the branch locally, pull if it is your current branch, and test the fix.
+4. Create a PR if you have committed the changes to a new branch.
+
+Reference: [Resolving code scanning alerts with Copilot Autofix](https://docs.github.com/en/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/resolve-alerts#generating-a-suggested-fix).
 
 ## Completion check
 
 - [ ] Pagination is done by the API, tested, and works at `http://localhost:5000`.
 - [ ] Pull request into `master` is open and its checks passed.
-- [ ] All available security findings were reviewed and recorded, including code scanning, dependency, and Secret Protection alerts; no secrets were committed.
+- [ ] Dependabot, code scanning, and secret scanning alerts were reviewed and findings recorded; no real secrets were committed.
+- [ ] A Copilot Autofix suggestion was reviewed, committed to an existing or new branch, and tested, or its unavailability was recorded.
 
 Continue to [Exercise 3](exercise-3-readme-update.md).
