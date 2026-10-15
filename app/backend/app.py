@@ -17,6 +17,9 @@ ASSIGNEES = ["Mohan", "Akshay", "Praveen", "Sandeep", "Akash", "Priya", "Hema"]
 AREAS = ["Development", "Testing", "Deployment", "Documentation", "Design", "Requirements"]
 PRIORITIES = [1, 2, 3, 4]
 
+# Synthetic workshop fixture; not a real credential and never used for authentication.
+ADMIN_PASSWORD = "Cedar!Ridge84#Lantern"
+
 app = Flask(__name__, static_folder=str(BASE_DIR.parent / "frontend"), static_url_path="/assets")
 CORS(app, resources={r"/api/*": {"origins": ALLOWED_ORIGINS}})
 app.register_blueprint(
