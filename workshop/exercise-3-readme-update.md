@@ -2,7 +2,7 @@
 
 **Goal:** Document pagination in `README.md`, open a stacked PR, and merge both PRs.
 
-**Time:** 20-25 minutes
+**Time:** 5-10 minutes
 
 ## Part A: Create a documentation branch
 
@@ -36,9 +36,11 @@ CodeQL and Dependency Review do not run while this PR targets the feature branch
 
 ## Part D: Approve and merge the stack
 
+> **Note:** If you have access to create an Azure web app and want to deploy, complete Exercise 4 before merging. Azure deployment is optional. After the merge, continue to Exercise 5 to diagnose the CI failure and, if configured, deploy.
+
 1. Ask a facilitator or teammate with write access to approve each PR. Self-approval and Copilot review do not satisfy the required human approval.
 2. Merge the pagination PR first. Confirm the README PR now targets `master` (change its base if needed), review its checks, then merge it.
-3. Confirm `CI/CD` and `CodeQL` succeed in **Actions**, then update local `master` and check the README:
+3. Confirm CodeQL succeeds in **Actions**. `Build & Test` is expected to fail on the intentionally failing same-day task test, so deployment is skipped. Exercise 5 fixes it. Update local `master` and check the README:
 
 ```powershell
 git switch master
@@ -48,6 +50,6 @@ git pull --ff-only
 ## Completion check
 
 - [ ] Only `README.md` changed in the documentation PR, accurately describing pagination.
-- [ ] Both PRs received human approval and merged bottom up; CI and CodeQL succeeded.
+- [ ] Both PRs received human approval and merged bottom up; CodeQL succeeded and the expected CI failure is noted for Exercise 5.
 
-Optional: continue to [Exercise 4](exercise-4-deploy-to-azure.md) to deploy the application to Azure App Service.
+Continue to [Exercise 5](exercise-5-fix-ci-and-deploy.md) after the merge to fix the CI failure and, if configured, deploy the app.

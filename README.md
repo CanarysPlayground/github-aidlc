@@ -19,7 +19,7 @@ Workshop/
 ├── .github/
 │   ├── dependabot.yml       # Dependency update configuration
 │   └── workflows/
-│       ├── ci.yml           # Build, test, coverage, artifacts, deploy
+│       ├── ci-cd.yml        # Build, test, coverage, artifacts, deploy
 │       └── codeql.yml       # Code scanning (Python + JavaScript)
 ├── app/
 │   ├── backend/
@@ -146,10 +146,10 @@ pytest -v --cov=app --cov=openapi --cov-report=term-missing
 
 | Workflow | Trigger | What it does |
 |----------|---------|--------------|
-| `ci.yml` | Push to `master` | Installs dependencies, compile check, runs tests with coverage, publishes test results and one `application` artifact |
+| `ci-cd.yml` | Push to `master` | Installs dependencies, compile check, runs tests with coverage, publishes test results and one `application` artifact |
 | `dependency-review.yml` | PR to `master` | Fails the PR if it introduces a high-severity vulnerable dependency |
-| `ci.yml` → Deploy | Push to `master` (after tests pass) | Deploys the combined application to one Azure App Service |
-| `codeql.yml` | Push / PR to `master`, weekly | CodeQL code scanning for Python and JavaScript |
+| `ci-cd.yml` → Deploy | Push to `master` (after tests pass) | Deploys the combined application to one Azure App Service |
+| `codeql.yml` | Push / PR to `master` | CodeQL code scanning for Python and JavaScript |
 | `dependabot.yml` | Weekly | Dependency update PRs for pip and GitHub Actions |
 
 ### Azure setup for deployment
@@ -158,7 +158,7 @@ The step-by-step guide is in [Exercise 4: Deploy to Azure App Service](workshop/
 
 1. Create one **Linux, Python 3.12** App Service for the entire application. Add the app setting `SCM_DO_BUILD_DURING_DEPLOYMENT=true`, set the startup command below, and turn on **SCM Basic Auth Publishing Credentials**.
 2. Download the web app's **publish profile** from its Overview page.
-3. In GitHub **Settings → Environments**, create `production` and add the publish profile contents as the secret `AZURE_WEBAPP_PUBLISH_PROFILE`. Under **Settings → Secrets and variables → Actions → Variables**, add the repository variable `AZURE_APP_NAME`:
+3. In GitHub **Settings → Secrets and variables → Actions → Secrets**, add the publish profile contents as the repository secret `AZURE_WEBAPP_PUBLISH_PROFILE`. Under **Variables**, add the repository variable `AZURE_APP_NAME`:
 
 | Type | Name | Value |
 |------|------|-------|
@@ -173,7 +173,7 @@ Keep one worker and one App Service instance while task data remains in memory. 
 
 ## Workshop Guide
 
-Follow the hands-on guide starting at [Exercise 0: Introduction](workshop/exercise-0-introduction.md). It leads through Exercises 1, 2, and 3.
+Follow the hands-on guide starting at [Exercise 0: Introduction](workshop/exercise-0-introduction.md). It covers repository setup, pagination, a stacked README PR, Azure setup, and fixing a CI failure before deployment.
 
 The exercises use `master`, the template's default branch, in commands and PR base branches.
 

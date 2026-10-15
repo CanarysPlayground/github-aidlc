@@ -2,11 +2,14 @@
 
 **Goal:** Create your repository from the template, clone it, and enable Advanced Security features.
 
-**Time:** 15-20 minutes
+**Time:** 10-15 minutes
 
 ## Part A: Create your repository from the template
 
-Follow [Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template) using the `CanarysPlayground/github-aidlc` template. Set visibility to **Public** (Advanced Security is free for public repositories). Do not add a README, `.gitignore`, or license.
+Follow [Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template) using the `CanarysPlayground/github-aidlc` template. 
+
+- Set visibility to **Public** (Advanced Security is free for public repositories). 
+- Do not add a README, `.gitignore`, or license.
 
 ## Part B: Clone and run
 
@@ -22,7 +25,7 @@ Open `http://localhost:5000` (app), `/api/tasks` (API), and `/docs` (Swagger UI)
 
 ## Part C: Enable Advanced Security
 
-Follow [Managing security and analysis settings](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-public-repositories) and enable:
+Follow [Enabling security features at public repositories](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-public-repositories) and enable:
 
 - Dependabot alerts and security updates
 - Code scanning
@@ -30,9 +33,9 @@ Follow [Managing security and analysis settings](https://docs.github.com/en/repo
 
 If a setting is unavailable, ask the facilitator.
 
-## Part D: Verify CodeQL and CI
+## Part D: Verify CodeQL and CI-CD
 
-The template already includes `.github/workflows/codeql.yml` and `ci.yml`, so CodeQL runs as **Advanced setup**. Do not configure CodeQL Default setup.
+The repository already includes `.github/workflows/codeql.yml` and `ci-cd.yml`, so CodeQL runs as **Advanced setup**. Do not configure CodeQL Default setup.
 
 Open the **Actions** tab, enable workflows if a banner asks, and confirm `CodeQL` and `CI/CD` are listed.
 

@@ -2,7 +2,7 @@
 
 **Goal:** Add server-side pagination, open a pull request, and review CodeQL and secret scanning results.
 
-**Time:** 30-40 minutes
+**Time:** 5-10 minutes
 
 ## Part A: Check the current app
 
