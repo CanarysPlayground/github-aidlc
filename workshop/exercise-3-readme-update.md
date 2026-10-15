@@ -44,7 +44,7 @@ CodeQL and Dependency Review do not run while this PR targets the feature branch
 
 ## Part D: Approve and merge the stack
 
-> **Note:** If you have access to create an Azure web app and want to deploy, complete Exercise 4 before merging. Azure deployment is optional. After the merge, continue to Exercise 5 to diagnose the CI failure and, if configured, deploy.
+> **Note:** If you have Azure portal access and permission to create a web app, complete [Exercise 4: Deploy to Azure](exercise-4-deploy-to-azure.md) before merging, then return here. Otherwise, skip the optional Azure setup and continue below. After merging, continue to [Exercise 5](exercise-5-fix-ci-and-deploy.md) to diagnose the CI failure and, if configured, deploy.
 
 1. Ask a facilitator or teammate with write access to approve each PR. Self-approval and Copilot review do not satisfy the required human approval.
 2. Merge the pagination PR first. Confirm the README PR now targets `master` (change its base if needed), review its checks, then merge it.
