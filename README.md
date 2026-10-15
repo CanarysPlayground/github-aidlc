@@ -17,7 +17,6 @@ A lightweight task management application with a **Python (Flask) REST API** and
 Workshop/
 ├── run.ps1                  # Starts the application (frees port 5000 first)
 ├── .github/
-│   ├── dependabot.yml       # Dependency update configuration
 │   └── workflows/
 │       ├── ci-cd.yml        # Build, test, coverage, artifacts, deploy
 │       └── codeql.yml       # Code scanning (Python + JavaScript)
@@ -150,7 +149,6 @@ pytest -v --cov=app --cov=openapi --cov-report=term-missing
 | `dependency-review.yml` | PR to `master` | Fails the PR if it introduces a high-severity vulnerable dependency |
 | `ci-cd.yml` → Deploy | Push to `master` (after tests pass) | Deploys the combined application to one Azure App Service |
 | `codeql.yml` | Push / PR to `master` | CodeQL code scanning for Python and JavaScript |
-| `dependabot.yml` | Weekly | Dependency update PRs for pip and GitHub Actions |
 
 ### Azure setup for deployment
 
